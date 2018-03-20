@@ -3,8 +3,8 @@ filetype off                  " required
 
 
 " set the runtime path to include Vundle and initialize
-set rtp+=/etc/vim/bundle/Vundle.vim/
-call vundle#begin("/etc/vim/bundle")
+set rtp+=$VIM_BUNDLE/Vundle.vim/
+call vundle#begin($VIM_BUNDLE)
 
 
 " let Vundle manage Vundle, required
