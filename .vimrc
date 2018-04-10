@@ -57,3 +57,4 @@ set expandtab
 set backspace=2
 
 let g:syntastic_c_include_dirs = ['/usr/include']
+au FileType tex :set norelativenumber
