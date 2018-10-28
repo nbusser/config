@@ -55,6 +55,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set backspace=2
+set autoindent noexpandtab tabstop=8 shiftwidth=8
+set listchars=trail:·,precedes:«,extends:»,tab:⋅\ ,nbsp:\ 
+set list
 
 let g:syntastic_c_include_dirs = ['/usr/include']
 au FileType tex :set norelativenumber
