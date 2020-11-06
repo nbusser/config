@@ -2,6 +2,8 @@
 # User configuration sourced by interactive shells
 #
 
+export ZSH_PATH="/bin/zsh"
+
 # Define zim location
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
