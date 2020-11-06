@@ -17,6 +17,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 #
 
 export VISUAL="vim"
+export VIM_BUNDLE="${HOME}/.vim/bundle"
 
 # Change default zim location
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
