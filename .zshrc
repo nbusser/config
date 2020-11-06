@@ -31,3 +31,7 @@ source ~/.shrc
 source ~/.omzgit
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
+# Concerning vmware shared folder
+export SHARED_PATH="${HOME}/shares"
+alias mount_shared="vmhgfs-fuse .host:/ ${SHARED_PATH} -o subtype=vmhgfs-fuse,allow_other"
