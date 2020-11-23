@@ -51,6 +51,21 @@ source ~/.omzgit
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
+
+
 # Concerning vmware shared folder
 export SHARED_PATH="${HOME}/shares"
 alias mount_shared="vmhgfs-fuse .host:/ ${SHARED_PATH} -o subtype=vmhgfs-fuse,allow_other"
+
+export PYTHONPATH="${SHARED_PATH}/projects/2001160BOS/trunk/test/uds/basic-framework/"
+
+alias cansend="noglob cansend"
+alias disable_proxy="unset http_proxy; unset https_proxy"
+
+export GHIDRA_INSTALL_DIR="/home/nbusser/ghidra_9.1.2_PUBLIC"
+alias ghidra="${GHIDRA_INSTALL_DIR}/ghidraRun"
+
+alias fix_vmware="systemctl restart vmtoolsd.service"
+
+alias sameboy="${HOME}/tools/SameBoy/build/bin/SDL/sameboy"
+
