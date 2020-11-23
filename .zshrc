@@ -8,9 +8,29 @@ export ZSH_PATH="/bin/zsh"
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
 # Start zim
-[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+if [[ ${ZIM_HOME}/init.zsh -ot ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  # Update static initialization script if it's outdated, before sourcing it
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+source ${ZIM_HOME}/init.zsh
 
+# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
+# Bind up and down keys
+zmodload -F zsh/terminfo +p:terminfo
+if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
+  bindkey ${terminfo[kcuu1]} history-substring-search-up
+  bindkey ${terminfo[kcud1]} history-substring-search-down
+fi
+
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+# }}} End configuration added by Zim install
 
 #
 # User configuration sourced by interactive shells
@@ -23,7 +43,6 @@ export VIM_BUNDLE="${HOME}/.vim/bundle"
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
 # Start zim
-[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 alias l="ls -lh"
 alias copy="xclip -selection clipboard"
 alias garcH="git archive -o latest.tar.gz HEAD"
